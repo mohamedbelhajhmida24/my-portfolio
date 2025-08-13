@@ -104,6 +104,56 @@
             border: 2px solid var(--primary-color);
         }
 
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--card-bg);
+            min-width: 160px;
+            box-shadow: var(--shadow-lg);
+            z-index: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+
+        .dropdown-menu a {
+            color: var(--text-color);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .dropdown-menu a:hover {
+            background-color: rgba(37, 99, 235, 0.1);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* For dark mode */
+        .dark-mode .dropdown-menu {
+            background-color: var(--card-bg);
+        }
+
+        .dark-mode .dropdown-menu a {
+            color: var(--text-color);
+        }
+
+        .dark-mode .dropdown-menu a:hover {
+            background-color: rgba(37, 99, 235, 0.2);
+        }
+
         .logo-text {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
@@ -695,6 +745,31 @@
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
         }
+
+
+        .spinner {
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #fff;
+            border-right: 2px solid #fff;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            animation: spin 0.6s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
 
         .certification-logo {
             width: 60px;
@@ -1520,19 +1595,30 @@
                 <div class="hero-text">
                     <h1>Mohamed BELHAJHMIDA</h1>
                     <p class="title">Software Engineer & Business Intelligence Specialist</p>
-                    <p>Passionate about technological innovation and solving complex problems. I leverage my expertise
-                        to develop high-performance software solutions and intelligent systems for ambitious projects.
-                    </p>
+                    <p>I deliver cutting-edge software solutions and data-driven insights to help businesses optimize
+                        their operations and drive growth. With expertise in full-stack development and business
+                        intelligence, I transform complex challenges into efficient digital solutions.</p>
                     <div class="hero-btns">
                         <a href="#contact" class="btn btn-primary">Contact Me</a>
-                        <a href="#" class="btn btn-outline">Download CV</a>
+                        <div class="dropdown">
+                            <button class="btn btn-outline dropdown-toggle" id="cvDropdown" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Download CV
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="cvDropdown">
+                                <a class="dropdown-item" href="cvmohamedbelhajhmida.pdf" target="_blank">French
+                                    Version</a>
+                                <a class="dropdown-item" href="mohamedbelhajhmidaa.pdf" target="_blank">English
+                                    Version</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="social-links">
                         <a href="mailto:belhajhmidamohamed@gmail.com"><i class="fas fa-envelope"></i></a>
                         <a href="tel:+21692172515"><i class="fas fa-phone"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/mohamed-belhajhmida-506776222/"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/mohamedbelhajhmida24"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -1552,24 +1638,28 @@
             <div class="about-content">
                 <div class="about-text">
                     <h3>Who Am I?</h3>
-                    <p>I'm a recently graduated software engineer specializing in developing high-performance web and
-                        mobile applications. My academic and professional journey has equipped me with solid technical
+                    <p>I'm a recently graduated software engineer specializing in developing high-performance web
+                        applications. My academic and professional journey has equipped me with solid technical
                         expertise and the ability to adapt to various technological environments.</p>
                     <p>Driven by innovation, I'm constantly exploring new technologies and methodologies to enhance my
                         skills and deliver increasingly effective solutions to my clients and employers.</p>
 
+
+                    <p>My approach combines technical excellence with strategic thinking to deliver solutions that
+                        create measurable business value.</p>
+
                     <div class="about-stats">
                         <div class="stat-item pulse">
                             <div class="stat-number">5+</div>
-                            <div class="stat-text">Completed Projects</div>
-                        </div>
-                        <div class="stat-item pulse">
-                            <div class="stat-number">3</div>
-                            <div class="stat-text">Certifications</div>
+                            <div class="stat-text">Successful Projects</div>
                         </div>
                         <div class="stat-item pulse">
                             <div class="stat-number">100%</div>
                             <div class="stat-text">Client Satisfaction</div>
+                        </div>
+                        <div class="stat-item pulse">
+                            <div class="stat-number">3</div>
+                            <div class="stat-text">Industry Certifications</div>
                         </div>
                     </div>
                 </div>
@@ -1585,7 +1675,8 @@
         <div class="container">
             <div class="section-title">
                 <h2>Professional Experience</h2>
-                <p>My professional journey and the projects I've worked on</p>
+                <p>Demonstrated success in delivering impactful solutions across diverse industries. Here are highlights
+                    of my professional journey:</p>
             </div>
 
             <div class="timeline">
@@ -1715,27 +1806,39 @@
                 <h3>Certifications</h3>
             </div>
             <div class="certifications-grid">
-                <div class="certification-item">
-                    <img src="https://via.placeholder.com/50" alt="IBM Logo" class="certification-logo">
+                <div class="certification-item"
+                    onclick="window.open('https://www.credly.com/badges/36428506-54ba-442f-aa45-88122f026f96', '_blank')">
+                    <img src="img/image.png" alt="IBM Logo" class="certification-logo">
                     <div class="certification-info">
                         <h4>Big Data Engineer Certificate</h4>
                         <p>IBM - 2024</p>
                     </div>
                 </div>
 
-                <div class="certification-item">
-                    <img src="https://via.placeholder.com/50" alt="ISTQB Logo" class="certification-logo">
+                <div class="certification-item" onclick="window.open('img/istqbcertif.jpg', '_blank')">
+                    <img src="img/istqbcertif.jpg" alt="ISTQB Logo" class="certification-logo">
                     <div class="certification-info">
                         <h4>ISTQB Foundation Level CTFL</h4>
                         <p>International Software Testing Qualifications Board - 2024</p>
                     </div>
                 </div>
 
-                <div class="certification-item">
-                    <img src="https://via.placeholder.com/50" alt="Certiport Logo" class="certification-logo">
+
+                <div class="certification-item"
+                    onclick="window.open('https://www.credly.com/badges/3dbaeb8d-11ff-416b-9312-0740fca12d49/linked_in_profile', '_blank')">
+                    <img src="img/ITS-Badges_Art-Intel.png" alt="Certiport Logo" class="certification-logo">
                     <div class="certification-info">
                         <h4>IT Specialist Artificial Intelligence</h4>
                         <p>Certiport / Pearson VUE - 2024</p>
+                    </div>
+                </div>
+
+                <div class="certification-item"
+                    onclick="window.open('https://www.credly.com/badges/c2796ee6-a5f6-4e87-b476-489d2e092c7c/linked_in_profile', '_blank')">
+                    <img src="img/ccna.png" alt="Certiport Logo" class="certification-logo">
+                    <div class="certification-info">
+                        <h4>Network Associate</h4>
+                        <p>CCNA / 2023</p>
                     </div>
                 </div>
             </div>
@@ -1964,28 +2067,30 @@
                         </div>
                     </div>
                 </div>
-                <form class="contact-form" id="contact-form">
+                <form id="contactForm" class="contact-form">
+
                     <h3>Send Me a Message</h3>
-                    <div class="form-group">
+                    <div class=" form-group">
                         <label for="name">Your Name</label>
-                        <input type="text" id="name" class="form-control" required>
+                        <input type="text" id="name" name="name" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Your Email</label>
-                        <input type="email" id="email" class="form-control" required>
+                        <input type="email" id="email" name="email" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="subject">Subject</label>
-                        <input type="text" id="subject" class="form-control">
+                        <input type="text" id="subject" name="subject" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="message">Your Message</label>
-                        <textarea id="message" class="form-control" required></textarea>
+                        <textarea id="message" name="message" class="form-control" required></textarea>
                     </div>
-                    <button type="submit" class="submit-btn">
+                    <button type="submit" class="submit-btn" id="submitBtn">
                         <i class="fas fa-paper-plane"></i> Send Message
                     </button>
                 </form>
+
             </div>
         </div>
     </section>
@@ -2067,6 +2172,14 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+
+
+
+
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Particles.js Configuration
@@ -2367,6 +2480,53 @@
 
             window.addEventListener('scroll', checkSkillsSection);
             window.addEventListener('load', checkSkillsSection);
+        });
+
+        // Gestion du menu déroulant pour le téléchargement du CV
+        const cvDropdown = document.getElementById('cvDropdown');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+
+        cvDropdown.addEventListener('click', function (e) {
+            e.preventDefault();
+            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Fermer le menu si on clique ailleurs
+        document.addEventListener('click', function (e) {
+            if (!e.target.matches('#cvDropdown') && !e.target.closest('.dropdown-menu')) {
+                dropdownMenu.style.display = 'none';
+            }
+        });
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            emailjs.init("Jo9FDXew3li8SjZER");
+
+            const contactForm = document.getElementById("contactForm");
+            const submitBtn = document.getElementById("submitBtn");
+
+            contactForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                // Changer le bouton en "chargement"
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<span class="spinner"></span> Sending...';
+
+                emailjs.sendForm("service_79gnk03", "template_0vfrytd", this)
+                    .then(function () {
+                        alert("Message envoyé avec succès !");
+                        contactForm.reset();
+                    })
+                    .catch(function (error) {
+                        alert("Erreur lors de l'envoi du message : " + JSON.stringify(error));
+                    })
+                    .finally(function () {
+                        // Remettre le bouton normal
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                    });
+            });
+
         });
     </script>
 </body>
